@@ -7,6 +7,19 @@ angular.module('cherApp', ['controllers', 'ui.router','ui.bootstrap'])
 		templateUrl:"templates/welcome.html",
 		controller: "welcomeCtrl"
  
+	})
+	
+	.state('teachers', {
+		url:"/teachers",
+		templateUrl:"templates/teachers.html",
+		controller: "teachersCtrl"
+ 
+	})
+	.state('subjects', {
+		url:"/subjects",
+		templateUrl:"templates/subjects.html",
+		controller: "subjectsCtrl"
+ 
 	});
 	
 /*	.state('loggedin', {
