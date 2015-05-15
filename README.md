@@ -21,6 +21,7 @@ Hence, some routing and permissions checking is required at certain stages.
 
 #Database set up
 MySQL can be used. We have included a suggested CodeIgniter sample for simple logging in and slot creation by teacher. The tables that are needed are as follows, although, you may have a better way to organise your data.
+
 USERS 
 - user_id (PRIMARY KEY, A.I)
 - fname
