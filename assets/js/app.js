@@ -11,7 +11,7 @@ angular.module('cherApp', ['controllers', 'ui.router','ui.bootstrap'])
 	
 	.state('teachers', {
 		url:"/teachers",
-		templateUrl:"templates/teachers.html",
+		templateUrl:"templates/teacher_createslot.html",
 		controller: "teachersCtrl"
  
 	})

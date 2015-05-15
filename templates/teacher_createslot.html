@@ -1,0 +1,31 @@
+<div class="container">
+<div class="row">
+<h4>Select Consultation Date</h4>
+    <div class="row">
+        <div class="col-md-6">
+            <p class="input-group">
+              <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="consult.date" is-open="opened" min-date="minDate" max-date="'2015-12-31'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+        </div>
+</div>
+</div>
+<div class="row">
+   <h4>Select Time Slot </h4>
+    <div class="col-md-6">
+   <div class="form-group">
+   <select class="form-control" ng-model="consult.time" ng-options="time.slot for time in slots"></select>
+   </div>
+   </div>
+   </div>
+   <div class="row">
+
+<div class="form-group">
+   <button class="btn btn-warning" ng-click="createSlot()">Create</button>
+</div>
+</div>
+
+   <pre>{{consult}}</pre>
+   </div>
