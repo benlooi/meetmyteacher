@@ -18,6 +18,8 @@ teachers who are available to give coaching. Teachers also can better manage the
 slots for open consultations. Only when booking the selected time slot, the user needs to log in.
 
 Hence, some routing and permissions checking is required at certain stages.
+#Cloud 9 settings
+You can use Cloud 9 (http://c9.io) to practice your coding. There are notes under the Docs section of Cloud9 on how to set up MySQL, PhpMyAdmin. I've set up CodeIgniter as well. Important things to note is how to set your "database.php" under your applications/config folder. Read about Setting Up MySQL , PhpMyAdmin, and Connecting PHP to MySQL. One of the most important thing to learn as a new coder is how to read guides and instructions. Ask your coach if you have problems.
 
 #Database set up
 MySQL can be used. We have included a suggested CodeIgniter sample for simple logging in and slot creation by teacher. The tables that are needed are as follows, although, you may have a better way to organise your data.
@@ -42,3 +44,5 @@ SLOTS
 - student_id
 - subject
 - status
+
+##Key processes
