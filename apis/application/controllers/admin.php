@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Admin extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -26,11 +26,12 @@ class Welcome extends CI_Controller {
 	public function login () {
 		$data=json_decode(file_get_contents('php://input'));
 		$username=$data->user->username;
-		$username=$data->user->password;
+		$password=$data->user->password;
 
 		$user=array (
 			'username'=>$username,
-			'password'=>$password
+			'password'=>$password,
+			"role"=>"admin"
 
 			);
 		$this->db->select('fname,lname,role,user_id');
@@ -38,6 +39,11 @@ class Welcome extends CI_Controller {
 		$query=$query->result_array();
 		if (count($query)>0) {
 			json_encode($query);
+
+			$loginfo= array (
+				"user_id"=>$query[0]['user_id'];
+				);
+			$this->db->insert('userlog',$loginfo);
 
 		} else if (count($query)==0) {
 			echo "user not found";
@@ -47,27 +53,39 @@ class Welcome extends CI_Controller {
 
 	}
 
-	public function createSlot () {
+	public function createUser () {
 		$data=json_decode(file_get_contents('php://input'));
-		$teacher=$data->teacher;
-		$slot=$data->slot;
+		$newuser=$data->newuser;
+		
+		$userinfo=array (
+			"user_id"=>$data->user_id,
+			"role"=>$data->role,
+			"status"=>$data->status
+			);
 
-		$slotinfo = array (
-			"teacher"=>$teacher->user_id;
-			"date"=>$slot->date;
-			"time"=>$slot->time;
-			)
+				$this->db->select('user_id');
+				$query=$this->db->get_where('users',$userinfo);
+				$query=$query->result_array();
+				
+				if (count($query)>0){
+
+					$userinfo=array (
+			"user_id"=>$data->user_id,
+			"role"=>$data->role,
+			"status"=>$data->status
+			);
 
 
-		$this->db->insert('slots',$slotinfo);
-					if($this->db->affected_rows() > 0)
-			{
-			  echo 'slot created';
-			}
-			else {
-				echo 'cannot create...error!';
-			}
-
+					$this->db->insert('users',$userinfo);
+								if($this->db->affected_rows() > 0)
+						{
+						  echo 'user created';
+						}
+						else {
+							echo 'cannot create user...error!';
+						}
+					}
 
 	}
+	
 }
